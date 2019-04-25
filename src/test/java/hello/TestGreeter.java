@@ -26,9 +26,9 @@ public class TestGreeter {
    public void testGreeter()
    {
 
-      g.setName("World");
-      assertEquals(g.getName(),"World");
-      assertEquals(g.sayHello(),"Hello World!");
+      g.setName("Worlds");
+      assertEquals(g.getName(),"Worlds");
+      assertEquals(g.sayHello(),"Hello Worlds!");
    }
 
 }
