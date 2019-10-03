@@ -41,4 +41,12 @@ public class TestGreeter {
       assertEquals(g.sayHello(), "Hello Victor!");
    }
 
+   @Test
+   public void newtestVHGreeterFail()
+   {
+      g.setName("Brian");
+      assertEquals(g.getName(), "Caleb");
+      assertEquals(g.sayHello(), "Hello Caleb!");
+   }
+
 }
