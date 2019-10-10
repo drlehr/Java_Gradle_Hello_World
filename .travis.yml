@@ -1,32 +1,31 @@
 dist: xenial
-
 language: java
-script: 
-  - gradle clean build
-  - tar -zcf hello_world_test_reports.tar.gz build/reports
-  - tar -zcf hello_world_executable_distributions.tar.gz build/distributions
-  - ls -R
-
+script:
+- gradle clean build
+- tar -zcf hello_world_test_reports.tar.gz build/reports
+- tar -zcf hello_world_executable_distributions.tar.gz build/distributions
+- ls -R
 before_deploy:
-  - git config --global user.email "builds@travis-ci.com"
-  - git config --global user.name "Travis CI"
-  - export GIT_TAG=$TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER
-  - echo "Just generated GIT_TAG"
-  - echo $GIT_TAG
-  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-  - git push -q https://$GITPERM@github.com/CS3398-Maggia-Sup/Java_Gradle_Hello_World  --tags
-  - ls -R
-  
+- git config --global user.email "builds@travis-ci.com"
+- git config --global user.name "Travis CI"
+- export GIT_TAG=$TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER
+- echo "Just generated GIT_TAG"
+- echo $GIT_TAG
+- git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+- git push -q https://$GITPERM@github.com/CS3398-Maggia-Sup/Java_Gradle_Hello_World  --tags
+- ls -R
 deploy:
   provider: releases
   file_glob: true
   api_key:
-    secure: $GITPERM
-  file: 
-    - README.md
-    - hello_world_test_reports.tar.gz 
-    - hello_world_executable_distributions.tar.gz 
+    secure: "$GITPERM"
+  file:
+  - README.md
+  - hello_world_test_reports.tar.gz
+  - hello_world_executable_distributions.tar.gz
   skip_cleanup: true
   on:
     tags: false
-  
+env:
+  global:
+    secure: KWMARhiJsyKNBmAO7BHSwbNG9saYup+Cmwm9xyftGJhEuVPacQmp6WjW8C/Kkq0EiDP5zkwy90qEhoUPx7lWdvqkpwEmtWuUGy2DKPgGqAF12rNYSGzqLMdGW15jZyoBLGbeTamQHNwFG9pusC3Q9cVK2Y7eYNHXak2PFAQzfSXcwM8/WyRWOE78RJAucdSd2Zhc+yNcOM8/fzr8a5Au3Abq93BI3n4pbKfz2J9ROmTB6kXLhWRQUXsbWIIkZSQos/L9VCnqFxkkGYpN7XTTIe8WHx1Xnsq3/tVVmizHN7VpT8x9+Xn/HKxpF7XpLJ1mEi787qhGV6KQtnC6t6WAgv9ktZKlPRt/knT/VPw2v4VOht3aRo//sTAwIJUGh5ZN4Cw6U0Q00373opNYpEqmmQocUqPeo4OBnS9H7oFtTU/cxnqlCWe8teZg6KxZaACjwEmlaPPkccwypQhMMS6CP8K7J+FLT159doxVEqbIBVifVQgLwXv7j4S7Y6HZgNHohfXcsax1RXisAVd5iyqt0CGoBLSboFdbllOnCxRHtcYuMGEAxz68PdVI7SW1guCDc5nwhRoI8oZ+vehcQo7yXQ1sYU0knbM0yw3udFFKcazoVW1rtNUdXWz79X1qFNsbFEPmlfQbYRBHbbxUEeHri8s3+lgnP8RFVONZ9AqlQ9A=
