@@ -1,4 +1,4 @@
-#dist: xenial
+dist: xenial
 
 language: java
 script: 
@@ -20,8 +20,8 @@ before_deploy:
 deploy:
   provider: releases
   file_glob: true
-  api_key:
-    secure: $GITPERM
+  api_key: $GITPERM
+  #   secure: $GITPERM
   file: 
     - README.md
     - hello_world_test_reports.tar.gz 
