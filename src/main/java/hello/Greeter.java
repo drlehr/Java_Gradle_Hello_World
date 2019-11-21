@@ -27,7 +27,7 @@ public class Greeter {
   	if (name == "") 
 
     {
-       return "Hello!";
+       return "Snort!";
     }
     else 
     {
