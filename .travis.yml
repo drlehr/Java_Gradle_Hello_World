@@ -27,7 +27,7 @@ before_deploy:
   
 deploy:
   provider: releases
-  api_key:
+  api_key: 59:0c:f3:f7:3a:de:c5:92:af:a2:fe:76:2e:e8:93:ba
     secure: $GITPERM
   file: 
     - README.md
