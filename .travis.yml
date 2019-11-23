@@ -1,4 +1,4 @@
-\dist: xenial
+dist: xenial
 ​
 language: java
 install: true
