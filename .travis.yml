@@ -23,7 +23,7 @@ before_deploy:
   - echo "Just generated GIT_TAG for $TRAVIS_BRANCH.$TRAVIS_BUILD_NUMBER" >> $TRAVIS_BUILD_DIR/build.txt
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
   - git push -q https://$GITPERM@github.com/drlehr/Java_Gradle_Hello_World  --tags
-#  - ls -R
+
   
 deploy:
   provider: releases
@@ -37,7 +37,10 @@ deploy:
   on:
     tags: false
     all_branches: true
-    
-
-    
-
+    - README.md
+    - hello_world_test_reports.tar.gz 
+    - hello_world_executable_distributions.tar.gz 
+  skip_cleanup: true  
+  on:
+    tags: false
+    all_branches: true
