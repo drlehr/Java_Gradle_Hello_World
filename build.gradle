@@ -19,7 +19,6 @@ jar {
     version =  '0.1.0'
 }
 
-/* 1.8 means Java 8 or above */
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
