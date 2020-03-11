@@ -20,18 +20,6 @@ public class TestGreeter {
       assertEquals(g.sayHello(),"Hello!");
    }
 
-
-
-   @Test
-   @DisplayName("Test for Name='World'")
-   public void testGreeter() 
-   {
-
-      g.setName("World");
-      assertEquals(g.getName(),"World");
-      assertEquals(g.sayHello(),"Hello World!");
-   }
-
 @Test
    @DisplayName("Test for Name='Alex'")
    public void testGreeter() 
