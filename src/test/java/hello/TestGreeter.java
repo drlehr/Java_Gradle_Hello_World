@@ -21,12 +21,12 @@ public class TestGreeter {
    }
 
 @Test
-   @DisplayName("Test for Name='Alex'")
+   @DisplayName("Test for Name='Alex.'")
    public void testGreeter() 
    {
 
-      g.setName("Alex");
-      assertEquals(g.getName(),"Alex");
+      g.setName("Alex.");
+      assertEquals(g.getName(),"Alex.");
       assertEquals(g.sayHello(),"Hello Alex!");
    }
 }
